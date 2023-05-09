@@ -1,0 +1,183 @@
+@import "media-queries";
+$color-primary1: hsla(0, 100%, 67%, 0.1);
+$color-primary2: hsla(39, 100%, 56%, 0.1);
+$color-primary3: hsla(166, 100%, 37%, 0.1);
+$color-primary4: hsla(234, 85%, 45%, 0.1);
+$color-gaduation1: hsl(252, 100%, 67%);
+$color-gaduation2: hsl(241, 81%, 54%);
+$color-circule-1: hsla(256, 72%, 46%, 1);
+$color-circule-2: hsla(241, 72%, 46%, 0);
+$color-fonts-1: hsl(241, 100%, 89%);
+$color-fonts-2: hsl(224, 30%, 27%);
+$color-titule: hsl(221, 100%, 96%);
+$white: white;
+
+//Colors
+.color-br-1{
+    background-color: $color-primary1;
+}
+.color-br-2{
+    background-color: $color-primary2;
+}
+.color-br-3{
+    background-color: $color-primary3;
+}
+.color-br-4{
+    background-color: $color-primary4;
+}
+.color-1{
+    color: hsl(0, 100%, 67%);
+}
+.color-2{
+    color: hsl(39, 100%, 56%);
+}
+.color-3{
+    color: hsl(166, 100%, 37%);
+}
+.color-4{
+    color: hsl(234, 85%, 45%);
+}
+.colorfonts-1{
+    color: $color-fonts-1;
+}
+.colorfonts-2{
+    color: $color-fonts-2;
+}
+.titule{
+    color: $color-titule;
+}
+.white{
+    color: $white;
+}
+//Fuentes
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url(../assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+//Fuentes tamaño
+@for $i from 1 through 15{
+    .font-#{$i}{
+        font-size: 6px * $i;
+        @include mobile{
+            font-size: 4px * $i;
+        }
+    }
+}
+
+//Borde Redondeado
+.redondeado{
+    border-radius: 30px;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+
+    font-family: 'HankenGrotesk';
+}
+
+html{
+    height: 100vh
+}
+
+.conteiner-principal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    height: 100vh;
+    
+    @include table{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .conteiner{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    .conteiner-1{
+        grid-template-rows: 1fr 4fr 2fr;
+        
+        background: linear-gradient($color-gaduation1, $color-gaduation2);
+
+        border-radius: 30px;
+
+        @include mobile{
+            grid-template-rows: 60px 2fr 1fr;
+            
+            height: 50vh;
+            div{
+                padding: 0;
+                .great-text{
+                    font-size: 15px;
+                }
+            }
+        }
+        
+
+        .circule{
+            border-radius: 50%;
+            
+            width: 300px;
+            height: 300px;
+
+            background: linear-gradient($color-circule-1, $color-circule-2);
+
+            justify-self: center;
+            @include mobile{
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+    .conteiner-2{
+        grid-template-rows: 1fr 2fr 1fr;
+        
+        @include mobile{
+            height: 50vh;
+        }
+
+        .estadisticas{
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 15px;
+
+            width: 60vh;
+
+            @include table{
+                width: 80vh;
+            }
+            @include mobile{
+                width: 50vh;
+                gap: 10px;
+            }
+
+            .estadisticas-element{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                width: 60vh;
+
+                border-radius: 12px;
+
+                padding: 5%;
+
+                @include table{
+                    width: 80vh;
+                }
+                @include mobile{
+                    width: 50vh;
+                    padding: 4%;
+                }
+            }
+        }
+    }    
+}
+    
